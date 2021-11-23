@@ -46,12 +46,4 @@ public class weaponRaycast : MonoBehaviour
 
         lineRenderer.enabled = false;
     }
-
-    public void FixedUpdate()
-    {
-        Destroy(impactEffect,4f);
-    }
-
-
-
 }
