@@ -33,7 +33,9 @@ public class weaponRaycast : MonoBehaviour
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, hitinfo.point);
             //Add Impact Effect Sprite w/ animation.
-            Instantiate(impactEffect, hitinfo.point, Quaternion.identity);
+            
+            Destroy(Instantiate(impactEffect, hitinfo.point, Quaternion.identity), 0.2f);   
+            // Instantiate(impactEffect, hitinfo.point, Quaternion.identity);
             
         } else {
             lineRenderer.SetPosition(0, firePoint.position);
