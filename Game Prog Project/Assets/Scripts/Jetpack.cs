@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Jetpack : MonoBehaviour
 {
+    
     private Rigidbody2D rb;
     private float jumpForce = 40f;
+    private float flight = 0f;
     private bool thrusterIsOn;
-
+    [Header("Jet Pack")]
+    [Space]
+    public Animator animator;
     [SerializeField]
     private GameObject thruster;
-
+    
     private void Start()
     {
         thrusterIsOn = false;
@@ -22,6 +26,7 @@ public class Jetpack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetFloat("Flight", Mathf.Abs(flight));
             thrusterIsOn = true;
             thruster.SetActive(true);
         }

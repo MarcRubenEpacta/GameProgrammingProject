@@ -8,8 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Animator animator;
 
 	public float runSpeed = 40f;
-	public float playerhealth = 100f;
-
+	public GameObject firepoint;
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
@@ -29,6 +28,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetButtonDown("Crouch"))
 		{
+			
+			//firepoint = GetComponent<Transform>().position = new Vector3(1.77f, -4.5f);
 			crouch = true;
 		} else if (Input.GetButtonUp("Crouch"))
 		{
@@ -48,11 +49,5 @@ public class PlayerMovement : MonoBehaviour {
 		// Move our character
 		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
 		jump = false;
-	}
-
-	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.tag.Equals("Enemy")) {
-			//Debug.Log(playerhealth - 10);
-		}
 	}
 }
